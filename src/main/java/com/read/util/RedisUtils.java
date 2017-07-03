@@ -12,13 +12,13 @@ public class RedisUtils {
 	private static Jedis jedis  = null;
 	static {
 		try{
-			jedis = new Jedis("192.168.1.178",6379);
+			jedis = new Jedis("192.168.1.117",6379);
 			jedis.auth("123456");
 			System.out.println("Connection to server sucessfully");
 		}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-			System.out.println("redis 服务器连接想失败");
+			System.out.println("redis 服务器连接失败");
 		}
 		
 	}
@@ -33,6 +33,7 @@ public class RedisUtils {
 	 * @return
 	 */
 	public static boolean exist(String sessionId){
+		log.info("exist");
 		return jedis.exists(sessionId);
 	}
 	
@@ -72,10 +73,10 @@ public class RedisUtils {
 	}
 	public static void main(String[] args) throws InterruptedException {
 		
-		if(!exist("test1")){
-			System.out.println("key is not exist");
-			put("test1","name","ksir");
-		}
+		
+		
+		//System.out.println(put("test1","name","ksir"));
+		
 		log.info("获取有效时间:{}s",ttl("test1"));
 		/*log.info("设置超时时间:{}s",expire("test",60));
 		log.info("获取有效时间:{}s",ttl("test"));
