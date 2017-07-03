@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss}  %-5level %logger{36} - %msg%n"/>
+    </Console>
+    <RollingFile name="file" fileName="d:/log/redis.log" filePattern="d:/log/redis_%d{yyyyMMdd}.log">
+    	<PatternLayout pattern="%d{HH:mm:ss}  %-5level %logger{36} - %msg%n"/>
+    	<Policies>
+    		<TimeBasedTriggeringPolicy />
+    	</Policies>
+    </RollingFile>
+  </Appenders>
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="file"/>
+    </Root>
+  </Loggers>
+</Configuration>
