@@ -12,7 +12,7 @@ public class RedisUtils {
 	private static Jedis jedis  = null;
 	static {
 		try{
-			jedis = new Jedis("192.168.1.117",6379);
+			jedis = new Jedis("192.168.1.178",6379);
 			jedis.auth("123456");
 			System.out.println("Connection to server sucessfully");
 		}catch (Exception e) {
